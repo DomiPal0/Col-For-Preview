@@ -1,351 +1,366 @@
 {
-  "updated_at": "2026-11-14",
+  "updated_at": "2026-11-14 22:37 UTC",
   "refresh_pages": 1,
   "wars": [
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Viking Guards",
       "date": "2026/11/13",
       "left": {
-        "division": "Triumphant #100",
-        "glory": "21,211",
         "name": "COLOMBIA FORCE",
-        "rank": "#100"
+        "rank": "# 100",
+        "glory": "21,211",
+        "division": "Triumphant #100"
       },
-      "notes": "—",
-      "result": "150",
       "right": {
-        "division": "Iconic #103",
-        "glory": "18,109",
         "name": "Viking Guards",
-        "rank": "#230"
+        "rank": "# 230",
+        "glory": "18,109",
+        "division": "Iconic #103"
       },
-      "size": "15 v 15",
+      "result": "150",
       "stars": [
-        "75",
-        "68"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs HAI ROMANIA",
       "date": "2026/11/11",
       "left": {
-        "division": "Triumphant #104",
-        "glory": "21,061",
         "name": "COLOMBIA FORCE",
-        "rank": "#104"
+        "rank": "# 104",
+        "glory": "21,061",
+        "division": "Triumphant #104"
       },
-      "notes": "—",
-      "result": "154",
       "right": {
-        "division": "Iconic #101",
-        "glory": "18,118",
         "name": "HAI ROMANIA",
-        "rank": "#228"
+        "rank": "# 228",
+        "glory": "18,118",
+        "division": "Iconic #101"
       },
-      "size": "15 v 15",
+      "result": "154",
       "stars": [
-        "75",
-        "54"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Open to ESH",
       "date": "2026/11/09",
       "left": {
-        "division": "Triumphant #90",
-        "glory": "20,907",
         "name": "COLOMBIA FORCE",
-        "rank": "#90"
+        "rank": "# 90",
+        "glory": "20,907",
+        "division": "Triumphant #90"
       },
-      "notes": "—",
-      "result": "-254",
       "right": {
-        "division": "Iconic #51",
-        "glory": "19,428",
         "name": "Open to ESH",
-        "rank": "#180"
+        "rank": "# 180",
+        "glory": "19,428",
+        "division": "Iconic #51"
       },
-      "size": "15 v 15",
+      "result": "-254",
       "stars": [
-        "63",
-        "75"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs ARMADA IBÉRICA",
       "date": "2026/11/07",
       "left": {
-        "division": "Triumphant #95",
-        "glory": "21,161",
         "name": "COLOMBIA FORCE",
-        "rank": "#95"
+        "rank": "# 95",
+        "glory": "21,161",
+        "division": "Triumphant #95"
       },
-      "notes": "—",
-      "result": "159",
       "right": {
-        "division": "Iconic #68",
-        "glory": "18,391",
         "name": "ARMADA IBÉRICA",
-        "rank": "#197"
+        "rank": "# 197",
+        "glory": "18,391",
+        "division": "Iconic #68"
       },
-      "size": "15 v 15",
+      "result": "159",
       "stars": [
-        "75",
-        "64"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs F8tal",
       "date": "2026/11/05",
       "left": {
-        "division": "Triumphant #94",
-        "glory": "21,002",
         "name": "COLOMBIA FORCE",
-        "rank": "#83"
+        "rank": "# 83",
+        "glory": "21,002",
+        "division": "Triumphant #94"
       },
-      "notes": "—",
-      "result": "-179",
       "right": {
-        "division": "Triumphant #89",
-        "glory": "21,061",
         "name": "F8tal",
-        "rank": "#106"
+        "rank": "# 106",
+        "glory": "21,061",
+        "division": "Triumphant #89"
       },
-      "size": "15 v 15",
+      "result": "-179",
       "stars": [
-        "61",
-        "75"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs 1st Poland",
       "date": "2026/11/03",
       "left": {
-        "division": "Triumphant",
-        "glory": "21,181",
         "name": "COLOMBIA FORCE",
-        "rank": "#92"
+        "rank": "# 92",
+        "glory": "21,181",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "231",
       "right": {
-        "division": "Triumphant",
-        "glory": "20,198",
         "name": "1st Poland",
-        "rank": "#120"
+        "rank": "# 120",
+        "glory": "20,198",
+        "division": "Triumphant"
       },
-      "size": "15 v 15",
+      "result": "231",
       "stars": [
-        "69",
-        "64"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Valhalla Exiles",
       "date": "2026/10/31",
       "left": {
-        "division": "Triumphant",
-        "glory": "20,950",
         "name": "COLOMBIA FORCE",
-        "rank": "#82"
+        "rank": "# 82",
+        "glory": "20,950",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "-156",
       "right": {
-        "division": "Triumphant",
-        "glory": "21,611",
         "name": "Valhalla Exiles",
-        "rank": "#72"
+        "rank": "# 72",
+        "glory": "21,611",
+        "division": "Triumphant"
       },
-      "size": "20 v 20",
+      "result": "-156",
       "stars": [
-        "35",
-        "100"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs LaHorDa",
       "date": "2026/10/29",
       "left": {
-        "division": "Triumphant",
-        "glory": "21,106",
         "name": "COLOMBIA FORCE",
-        "rank": "#58"
+        "rank": "# 58",
+        "glory": "21,106",
+        "division": "Triumphant"
       },
-      "notes": "Time War",
-      "result": "-282",
       "right": {
-        "division": "Iconic",
-        "glory": "18,323",
         "name": "LaHorDa",
-        "rank": "#195"
+        "rank": "# 195",
+        "glory": "18,323",
+        "division": "Iconic"
       },
-      "size": "15 v 15",
+      "result": "-282",
       "stars": [
-        "75",
-        "75"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "Time War"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs 1st Poland",
       "date": "2026/10/27",
       "left": {
-        "division": "Triumphant",
-        "glory": "21,388",
         "name": "COLOMBIA FORCE",
-        "rank": "#65"
+        "rank": "# 65",
+        "glory": "21,388",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "211",
       "right": {
-        "division": "Iconic",
-        "glory": "19,989",
         "name": "1st Poland",
-        "rank": "#131"
+        "rank": "# 131",
+        "glory": "19,989",
+        "division": "Iconic"
       },
-      "size": "15 v 15",
+      "result": "211",
       "stars": [
-        "70",
-        "57"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs ほのぼのうさぴょん",
       "date": "2026/10/25",
       "left": {
-        "division": "Triumphant",
-        "glory": "21,177",
         "name": "COLOMBIA FORCE",
-        "rank": "#72"
+        "rank": "# 72",
+        "glory": "21,177",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "122",
       "right": {
-        "division": "Iconic",
-        "glory": "16,530",
         "name": "ほのぼのうさぴょん",
-        "rank": "#307"
+        "rank": "# 307",
+        "glory": "16,530",
+        "division": "Iconic"
       },
-      "size": "15 v 15",
+      "result": "122",
       "stars": [
-        "73",
-        "61"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs EasyPeasy",
       "date": "2026/10/23",
       "left": {
-        "division": "Triumphant",
-        "glory": "21,055",
         "name": "COLOMBIA FORCE",
-        "rank": "#56"
+        "rank": "# 56",
+        "glory": "21,055",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "-106",
       "right": {
-        "division": "Triumphant",
-        "glory": "22,708",
         "name": "EasyPeasy",
-        "rank": "#5"
+        "rank": "# 5",
+        "glory": "22,708",
+        "division": "Triumphant"
       },
-      "size": "15 v 15",
+      "result": "-106",
       "stars": [
-        "28",
-        "75"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs 1st Poland",
       "date": "2026/10/21",
       "left": {
-        "division": "Triumphant",
-        "glory": "21,161",
         "name": "COLOMBIA FORCE",
-        "rank": "#35"
+        "rank": "# 35",
+        "glory": "21,161",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "-218",
       "right": {
-        "division": "Iconic",
-        "glory": "20,381",
         "name": "1st Poland",
-        "rank": "#134"
+        "rank": "# 134",
+        "glory": "20,381",
+        "division": "Iconic"
       },
-      "size": "15 v 15",
+      "result": "-218",
       "stars": [
-        "62",
-        "73"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Portugal Elite",
       "date": "2026/10/18",
       "left": {
-        "division": "Triumphant",
-        "glory": "21,379",
         "name": "COLOMBIA FORCE",
-        "rank": "#45"
+        "rank": "# 45",
+        "glory": "21,379",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "347",
       "right": {
-        "division": "Triumphant",
-        "glory": "20,106",
         "name": "Portugal Elite",
-        "rank": "#127"
+        "rank": "# 127",
+        "glory": "20,106",
+        "division": "Triumphant"
       },
-      "size": "15 v 15",
+      "result": "347",
       "stars": [
-        "74",
-        "50"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Hunters BR",
       "date": "2026/10/16",
       "left": {
-        "division": "Triumphant",
-        "glory": "21,032",
         "name": "COLOMBIA FORCE",
-        "rank": "#47"
+        "rank": "# 47",
+        "glory": "21,032",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "125",
       "right": {
-        "division": "Iconic",
-        "glory": "16,644",
         "name": "Hunters BR",
-        "rank": "#270"
+        "rank": "# 270",
+        "glory": "16,644",
+        "division": "Iconic"
       },
-      "size": "15 v 15",
+      "result": "125",
       "stars": [
-        "75",
-        "58"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Angry Exiles",
       "date": "2026/10/14",
       "left": {
-        "division": "Triumphant",
-        "glory": "20,907",
         "name": "COLOMBIA FORCE",
-        "rank": "#72"
+        "rank": "# 72",
+        "glory": "20,907",
+        "division": "Triumphant"
       },
-      "notes": "—",
-      "result": "247",
       "right": {
-        "division": "Triumphant",
-        "glory": "20,241",
         "name": "Angry Exiles",
-        "rank": "#102"
+        "rank": "# 102",
+        "glory": "20,241",
+        "division": "Triumphant"
       },
-      "size": "20 v 20",
+      "result": "247",
       "stars": [
-        "75",
-        "64"
+        "—",
+        "—"
       ],
-      "page": 1
+      "size": "—",
+      "notes": "—"
     },
     {
       "date": "2026/10/12",
