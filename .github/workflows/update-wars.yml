@@ -1,0 +1,74 @@
+name: Refresh Colombia Force war archive
+
+on:
+  schedule:
+    # 07:17 in Colombia (UTC-5); GitHub schedules use UTC.
+    - cron: "17 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: colombia-force-pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install parser
+        run: python -m pip install -r requirements.txt
+
+      - name: Read latest wars and rebuild the dashboard
+        run: python scripts/update_wars.py
+
+      - name: Save refreshed snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/wars.json index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh Colombia Force war archive"
+            git push
+          fi
+
+      # Pages publication stays disabled until the repository's access level is confirmed.
+      # Set the repository variable ENABLE_PAGES=true only after configuring private Pages access.
+      - name: Configure Pages
+        if: vars.ENABLE_PAGES == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Package Pages site
+        if: vars.ENABLE_PAGES == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+  deploy:
+    if: vars.ENABLE_PAGES == 'true'
+    needs: refresh
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy private Pages site
+        id: deployment
+        uses: actions/deploy-pages@v4
+
