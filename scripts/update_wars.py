@@ -105,9 +105,38 @@ def war_key(war: dict) -> tuple[str, str, str]:
 
 
 def merge_history(recent_wars: list[dict], saved_wars: list[dict]) -> list[dict]:
-    """Refresh entries on page 1 and carry forward older saved entries unchanged."""
-    merged = list(recent_wars)
-    known_keys = {war_key(war) for war in merged}
+    """Refresh page 1 while retaining saved values absent from the source page."""
+    saved_by_key = {war_key(war): war for war in saved_wars}
+    merged: list[dict] = []
+    known_keys: set[tuple[str, str, str]] = set()
+
+    def missing(value: object) -> bool:
+        return value is None or value == "" or value == "—"
+
+    for new_war in recent_wars:
+        key = war_key(new_war)
+        old_war = saved_by_key.get(key)
+        if old_war:
+            # DomiStats may omit these fields from its newer page layout. Keep the
+            # last known values instead of replacing them with placeholder dashes.
+            old_stars = old_war.get("stars", ["—", "—"])
+            new_stars = new_war.get("stars", ["—", "—"])
+            for index in range(2):
+                if index >= len(new_stars) or missing(new_stars[index]):
+                    if index < len(old_stars):
+                        if index >= len(new_stars):
+                            new_stars.append(old_stars[index])
+                        else:
+                            new_stars[index] = old_stars[index]
+            new_war["stars"] = new_stars
+
+            for field in ("size", "notes"):
+                if missing(new_war.get(field)) and not missing(old_war.get(field)):
+                    new_war[field] = old_war[field]
+
+        merged.append(new_war)
+        known_keys.add(key)
+
     for old_war in saved_wars:
         key = war_key(old_war)
         if key not in known_keys:
