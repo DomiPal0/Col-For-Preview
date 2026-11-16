@@ -1,11 +1,6 @@
 {
-  "updated_at": "2026-11-16 16:08 UTC",
+  "updated_at": "2026-11-16 16:13 UTC",
   "refresh_pages": 1,
-  "alliance": {
-    "glory": "21,491",
-    "rank": "#91",
-    "division": "Triumphant #91"
-  },
   "wars": [
     {
       "page": 1,
@@ -13,13 +8,13 @@
       "date": "2026/11/16",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#94",
+        "rank": "# 94",
         "glory": "21,491",
         "division": "Triumphant #94"
       },
       "right": {
         "name": "The Spearhead",
-        "rank": "#151",
+        "rank": "# 151",
         "glory": "19,502",
         "division": "Iconic #20"
       },
@@ -37,13 +32,13 @@
       "date": "2026/11/13",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#100",
+        "rank": "# 100",
         "glory": "21,211",
         "division": "Triumphant #100"
       },
       "right": {
         "name": "Viking Guards",
-        "rank": "#230",
+        "rank": "# 230",
         "glory": "18,109",
         "division": "Iconic #103"
       },
@@ -61,13 +56,13 @@
       "date": "2026/11/11",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#104",
+        "rank": "# 104",
         "glory": "21,061",
         "division": "Triumphant #104"
       },
       "right": {
         "name": "HAI ROMANIA",
-        "rank": "#228",
+        "rank": "# 228",
         "glory": "18,118",
         "division": "Iconic #101"
       },
@@ -85,13 +80,13 @@
       "date": "2026/11/09",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#90",
+        "rank": "# 90",
         "glory": "20,907",
         "division": "Triumphant #90"
       },
       "right": {
         "name": "Open to ESH",
-        "rank": "#180",
+        "rank": "# 180",
         "glory": "19,428",
         "division": "Iconic #51"
       },
@@ -109,13 +104,13 @@
       "date": "2026/11/07",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#95",
+        "rank": "# 95",
         "glory": "21,161",
         "division": "Triumphant #95"
       },
       "right": {
         "name": "ARMADA IBÉRICA",
-        "rank": "#197",
+        "rank": "# 197",
         "glory": "18,391",
         "division": "Iconic #68"
       },
@@ -133,13 +128,13 @@
       "date": "2026/11/05",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#83",
+        "rank": "# 83",
         "glory": "21,002",
         "division": "Triumphant #94"
       },
       "right": {
         "name": "F8tal",
-        "rank": "#106",
+        "rank": "# 106",
         "glory": "21,061",
         "division": "Triumphant #89"
       },
@@ -157,13 +152,13 @@
       "date": "2026/11/03",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#92",
+        "rank": "# 92",
         "glory": "21,181",
         "division": "Triumphant"
       },
       "right": {
         "name": "1st Poland",
-        "rank": "#120",
+        "rank": "# 120",
         "glory": "20,198",
         "division": "Triumphant"
       },
@@ -181,13 +176,13 @@
       "date": "2026/10/31",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#82",
+        "rank": "# 82",
         "glory": "20,950",
         "division": "Triumphant"
       },
       "right": {
         "name": "Valhalla Exiles",
-        "rank": "#72",
+        "rank": "# 72",
         "glory": "21,611",
         "division": "Triumphant"
       },
@@ -205,13 +200,13 @@
       "date": "2026/10/29",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#58",
+        "rank": "# 58",
         "glory": "21,106",
         "division": "Triumphant"
       },
       "right": {
         "name": "LaHorDa",
-        "rank": "#195",
+        "rank": "# 195",
         "glory": "18,323",
         "division": "Iconic"
       },
@@ -229,13 +224,13 @@
       "date": "2026/10/27",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#65",
+        "rank": "# 65",
         "glory": "21,388",
         "division": "Triumphant"
       },
       "right": {
         "name": "1st Poland",
-        "rank": "#131",
+        "rank": "# 131",
         "glory": "19,989",
         "division": "Iconic"
       },
@@ -253,13 +248,13 @@
       "date": "2026/10/25",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#72",
+        "rank": "# 72",
         "glory": "21,177",
         "division": "Triumphant"
       },
       "right": {
         "name": "ほのぼのうさぴょん",
-        "rank": "#307",
+        "rank": "# 307",
         "glory": "16,530",
         "division": "Iconic"
       },
@@ -277,13 +272,13 @@
       "date": "2026/10/23",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#56",
+        "rank": "# 56",
         "glory": "21,055",
         "division": "Triumphant"
       },
       "right": {
         "name": "EasyPeasy",
-        "rank": "#5",
+        "rank": "# 5",
         "glory": "22,708",
         "division": "Triumphant"
       },
@@ -301,13 +296,13 @@
       "date": "2026/10/21",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#35",
+        "rank": "# 35",
         "glory": "21,161",
         "division": "Triumphant"
       },
       "right": {
         "name": "1st Poland",
-        "rank": "#134",
+        "rank": "# 134",
         "glory": "20,381",
         "division": "Iconic"
       },
@@ -325,13 +320,13 @@
       "date": "2026/10/18",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#45",
+        "rank": "# 45",
         "glory": "21,379",
         "division": "Triumphant"
       },
       "right": {
         "name": "Portugal Elite",
-        "rank": "#127",
+        "rank": "# 127",
         "glory": "20,106",
         "division": "Triumphant"
       },
@@ -349,13 +344,13 @@
       "date": "2026/10/16",
       "left": {
         "name": "COLOMBIA FORCE",
-        "rank": "#47",
+        "rank": "# 47",
         "glory": "21,032",
         "division": "Triumphant"
       },
       "right": {
         "name": "Hunters BR",
-        "rank": "#270",
+        "rank": "# 270",
         "glory": "16,644",
         "division": "Iconic"
       },
