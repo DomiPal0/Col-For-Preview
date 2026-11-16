@@ -2,13 +2,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = "https://domistats.com/alliance_wars/68105"
-ALLIANCE_URL = "https://domistats.com/alliance/68105"
 SOURCE_PAGE_COUNT = 1
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; ColombiaForceWarArchive/1.0; scheduled public-page reader)"
@@ -20,14 +18,6 @@ def text(node, selector: str, default: str = "—") -> str:
     return found.get_text(" ", strip=True) if found else default
 
 
-def normalize_rank(raw: str) -> str:
-    value = (raw or "").strip()
-    if not value or value == "—":
-        return "—"
-    match = re.match(r"^#\s*(\d+)$", value)
-    return f"#{match.group(1)}" if match else value
-
-
 def read_side(war, side_name: str) -> dict:
     side = war.select_one(f".war-opponent-{side_name}")
     if side is None:
@@ -35,7 +25,7 @@ def read_side(war, side_name: str) -> dict:
     division = side.select_one(".division-rank")
     return {
         "name": text(side, ".war-alliance-name"),
-        "rank": normalize_rank(text(side, ".war-crest-rank")),
+        "rank": text(side, ".war-crest-rank"),
         "glory": text(side, ".war-alliance-glory span"),
         "division": " ".join(span.get_text(" ", strip=True) for span in division.find_all("span", recursive=False)) if division else "—",
     }
@@ -47,21 +37,9 @@ def read_war(war, page: int) -> dict:
     if "COLOMBIA FORCE" not in (left["name"], right["name"]):
         raise ValueError("A war entry did not include COLOMBIA FORCE")
 
-    def read_star_text(node) -> str:
-        if not node:
-            return "—"
-        value = node.get_text(" ", strip=True)
-        return value if value else "—"
-
     stars = war.select(".war-stars")
-    left_star_node = war.select_one(".war-stars.war-stars-left.no-wrap, .war-stars.war-stars-left") or (
-        stars[0] if stars else None
-    )
-    right_star_node = war.select_one(
-        ".war-stars.no-wrap:not(.war-stars-left), .war-stars:not(.war-stars-left)"
-    ) or (stars[1] if len(stars) > 1 else None)
-    left_stars = read_star_text(left_star_node)
-    right_stars = read_star_text(right_star_node)
+    left_stars = stars[0].get_text(" ", strip=True) if stars else "—"
+    right_stars = stars[1].get_text(" ", strip=True) if len(stars) > 1 else "—"
     result_node = war.select_one(".war-glory-winner, .war-glory-loser")
     result = result_node.get_text(" ", strip=True) if result_node else "—"
 
@@ -79,10 +57,9 @@ def read_war(war, page: int) -> dict:
         if "war-tag-close" in tag.get("class", []) or "war-tag-time" in tag.get("class", [])
     ]
     rel_time = war.select_one(".war-rel-time")
-    title = (war.get("data-share-title") or f"{left['name']} vs {right['name']}").strip()
     return {
         "page": page,
-        "title": title,
+        "title": war.get("data-share-title", ""),
         "date": rel_time.get("data-tooltip", "") if rel_time else "",
         "left": left,
         "right": right,
@@ -119,77 +96,11 @@ def fetch_wars() -> list[dict]:
     return collected
 
 
-def parse_alliance_info(html: str) -> dict:
-    from bs4 import BeautifulSoup
-
-    soup = BeautifulSoup(html, "html.parser")
-
-    glory = "—"
-    for candidate in soup.select(
-        '[data-tooltip="Glory"] .glory-value, .alliance-info-subcontainer .glory-row .glory-value, .glory-row .glory-value, .glory-value'
-    ):
-        next_span = candidate.select_one('img[alt="Glory"] + span')
-        val = (
-            next_span.get_text(" ", strip=True)
-            if next_span
-            else candidate.get_text(" ", strip=True)
-        ).strip()
-        if re.search(r"\d", val):
-            glory = val
-            break
-    if glory == "—":
-        for glory_img in soup.select('img[alt="Glory"]'):
-            next_span = glory_img.find_next_sibling("span")
-            if next_span:
-                val = next_span.get_text(" ", strip=True).strip()
-                if re.search(r"\d", val):
-                    glory = val
-                    break
-
-    rank = "—"
-    rank_node = soup.select_one(
-        '.alliance-info-subcontainer .rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box, .rank-box-with-diff .rank-box, .rank-box'
-    )
-    if rank_node:
-        raw_rank = re.sub(r"\s+", "", rank_node.get_text("", strip=True))
-        if raw_rank:
-            rank = normalize_rank(raw_rank if raw_rank.startswith("#") else f"#{raw_rank}")
-
-    division = "—"
-    division_node = soup.select_one(".alliance-info-subcontainer .division-rank, .division-rank")
-    if division_node:
-        spans = [
-            span.get_text(" ", strip=True)
-            for span in division_node.find_all("span", recursive=False)
-            if span.get_text(" ", strip=True)
-        ]
-        division = " ".join(spans) if spans else (division_node.get_text(" ", strip=True) or "—")
-
-    if glory == "—" and rank == "—" and division == "—":
-        raise RuntimeError("Could not parse alliance overview fields from DomiStats.")
-
-    return {
-        "glory": glory,
-        "rank": rank,
-        "division": division,
-    }
-
-
-def fetch_alliance_info() -> dict:
-    import requests
-
-    session = requests.Session()
-    session.headers.update(HEADERS)
-    response = session.get(ALLIANCE_URL, timeout=45)
-    response.raise_for_status()
-    return parse_alliance_info(response.text)
-
-
 def war_key(war: dict) -> tuple[str, str, str]:
     return (
-        war.get("date", "").strip(),
-        war.get("left", {}).get("name", "").strip().upper(),
-        war.get("right", {}).get("name", "").strip().upper(),
+        war.get("date", ""),
+        war.get("left", {}).get("name", ""),
+        war.get("right", {}).get("name", ""),
     )
 
 
@@ -204,10 +115,10 @@ def merge_history(recent_wars: list[dict], saved_wars: list[dict]) -> list[dict]
 
     for new_war in recent_wars:
         key = war_key(new_war)
-        if key in known_keys:
-            continue
         old_war = saved_by_key.get(key)
         if old_war:
+            # DomiStats may omit these fields from its newer page layout. Keep the
+            # last known values instead of replacing them with placeholder dashes.
             old_stars = old_war.get("stars", ["—", "—"])
             new_stars = new_war.get("stars", ["—", "—"])
             for index in range(2):
@@ -231,16 +142,11 @@ def merge_history(recent_wars: list[dict], saved_wars: list[dict]) -> list[dict]
         if key not in known_keys:
             merged.append(old_war)
             known_keys.add(key)
-
-    merged.sort(key=lambda item: item.get("date", ""), reverse=True)
     return merged
 
 
-def write_snapshot(wars: list[dict], updated_at: str, alliance_info: dict | None = None) -> None:
-    data: dict = {"updated_at": updated_at, "refresh_pages": SOURCE_PAGE_COUNT}
-    if alliance_info:
-        data["alliance"] = alliance_info
-    data["wars"] = wars
+def write_snapshot(wars: list[dict], updated_at: str) -> None:
+    data = {"updated_at": updated_at, "refresh_pages": SOURCE_PAGE_COUNT, "wars": wars}
     data_dir = ROOT / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
     (data_dir / "wars.json").write_text(
@@ -248,41 +154,41 @@ def write_snapshot(wars: list[dict], updated_at: str, alliance_info: dict | None
         encoding="utf-8",
     )
 
+    template = (ROOT / "index.template.html").read_text(encoding="utf-8-sig")
+    safe_json = json.dumps(wars, ensure_ascii=False, separators=(",", ":"))
+    safe_json = safe_json.replace("</", "<\\/")
+    if "__WARS_JSON__" not in template:
+        raise RuntimeError("Template markers are missing; no page was generated.")
+    html = template.replace("__WARS_JSON__", safe_json)
+    (ROOT / "index.html").write_text(html, encoding="utf-8")
+    site_dir = ROOT / "site"
+    site_dir.mkdir(exist_ok=True)
+    (site_dir / "index.html").write_text(html, encoding="utf-8")
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Refresh the Colombia Force war archive.")
     parser.add_argument(
         "--from-cache",
         action="store_true",
-        help="Validate and normalize data/wars.json without contacting DomiStats.",
+        help="Rebuild index.html from the committed data/wars.json without contacting DomiStats.",
     )
     args = parser.parse_args()
 
-    existing = json.loads((ROOT / "data" / "wars.json").read_text(encoding="utf-8"))
-    alliance_info = existing.get("alliance")
     if args.from_cache:
-        wars = merge_history([], existing["wars"])
+        existing = json.loads((ROOT / "data" / "wars.json").read_text(encoding="utf-8"))
+        wars = existing["wars"]
         updated_at = existing["updated_at"]
     else:
         recent_wars = fetch_wars()
+        existing = json.loads((ROOT / "data" / "wars.json").read_text(encoding="utf-8"))
         wars = merge_history(recent_wars, existing["wars"])
-        try:
-            fetched_alliance = fetch_alliance_info()
-            if alliance_info:
-                alliance_info = {
-                    "glory": fetched_alliance["glory"] if fetched_alliance.get("glory") not in (None, "", "—") else alliance_info.get("glory", "—"),
-                    "rank": fetched_alliance["rank"] if fetched_alliance.get("rank") not in (None, "", "—") else alliance_info.get("rank", "—"),
-                    "division": fetched_alliance["division"] if fetched_alliance.get("division") not in (None, "", "—") else alliance_info.get("division", "—"),
-                }
-            else:
-                alliance_info = fetched_alliance
-        except Exception as exc:
-            print(f"Warning: could not refresh alliance overview from {ALLIANCE_URL}: {exc}")
         updated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
-    write_snapshot(wars, updated_at, alliance_info)
-    print(f"Updated data/wars.json with {len(wars)} wars; timestamp: {updated_at}")
+    write_snapshot(wars, updated_at)
+    print(f"Built archive with {len(wars)} wars; data timestamp: {updated_at}")
 
 
 if __name__ == "__main__":
     main()
+
