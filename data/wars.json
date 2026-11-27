@@ -1,7 +1,31 @@
 {
-  "updated_at": "2026-11-26 21:38 UTC",
+  "updated_at": "2026-11-27 21:23 UTC",
   "refresh_pages": 1,
   "wars": [
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs ESH YES",
+      "date": "2026/11/27",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 92",
+        "glory": "21,401",
+        "division": "Triumphant #92"
+      },
+      "right": {
+        "name": "ESH YES",
+        "rank": "# 28",
+        "glory": "24,210",
+        "division": "Triumphant #28"
+      },
+      "result": "-61",
+      "stars": [
+        "—",
+        "—"
+      ],
+      "size": "—",
+      "notes": "—"
+    },
     {
       "page": 1,
       "title": "COLOMBIA FORCE vs Rebel Wizards",
